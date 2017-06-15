@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+</head>
+<body>
+    <h1>A JavaScript Word Scramble Game</h1>
+
+    <script>
+        var WORDS     = ["booger", "apple", "hackbright", "mango"];
+        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        function getRandomInt(min, max){
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random()*(max - min))+ min;
+            }
+
+
+        function shuffleWord (word){
+            var shuffledWord = '';
+            var charIndex = 0;
+        word = word.split('');
+        while(word.length > 0){
+            charIndex = word.length * Math.random() << 0;
+            shuffledWord += word[charIndex];
+            word.splice(charIndex,1);
+        }
+        return shuffledWord;
+    }
+        var playing = true;
+
+        while (playing) {
+
+            var i = getRandomInt(0, WORDS.length);
+
+            var randomWord = WORDS[i];
+            var randomScramble = shuffleWord(randomWord);
+
+            var gamePrompt = prompt("Unscramble this word: " + randomScramble);
+
+            while (gamePrompt.toLowerCase().trim() !== randomWord) {
+                gamePrompt = prompt("Sorry, that's wrong. Try again. As a reminder, the word is: " + randomScramble)
+            }
+            
+            alert("Correct! You guessed my word!");
+
+            // try
+            // {
+            //   if(gamePrompt.toLowerCase().trim() !== randomWord)
+            //     throw "Err1"
+            // }
+            // catch(er)
+            // {
+            //   if(er=="Err1")
+            //     gamePrompt = prompt("Sorry, that's wrong. Try again. As a reminder, the word is: " + randomScramble)
+            
+            // }
+            // finally
+
+
+
+
+            // if (gamePrompt.toLowerCase().trim() === randomWord) {
+            //     alert("Correct! You guessed my word!");
+            // }
+
+            // else {
+            //     gamePrompt = prompt("Sorry, that's wrong. Try again. As a reminder, the word is: " + randomScramble);
+            // }
+
+
+
+
+            // Grab a random word from the WORDS array.
+
+            // Grab the corresponding scrambled word from the SCRAMBLED array.
+
+            // Prompt the user to guess the original word when given the scrambled word.
+
+            // If the user guesses wrong, tell them they were wrong and show the right word.
+            
+            // If the user guesses the correct word, congratulate them.
+
+            playing = confirm("Press OK To keep playing or Cancel to quit");
+
+            // What does confirm() return?
+            // What does setting the playing variable do?
+        }
+
+        alert("goodbye!");
+    </script>
+    
+</body>
+</html>
